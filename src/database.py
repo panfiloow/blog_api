@@ -5,8 +5,7 @@ from sqlalchemy.ext.declarative import declarative_base
 DATABASE_URL = settings.DATABASE_URL
 
 engine = create_async_engine(
-    DATABASE_URL,
-    # echo=True # <-- Раскомментируйте, если хотите видеть SQL-запросы в логах
+    DATABASE_URL
 )
 
 AsyncSessionLocal = async_sessionmaker(
