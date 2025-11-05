@@ -1,9 +1,7 @@
 from logging.config import fileConfig
-import sys
-from pathlib import Path
 
 # Добавляем корень проекта в sys.path, чтобы можно было импортировать src и settings
-sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
+#sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
@@ -28,6 +26,9 @@ from src.database import Base  # noqa
 # --- НАЧАЛО ИМПОРТА МОДЕЛЕЙ ---
 # ВАЖНО: Импортируем модели ПОСЛЕ Base, чтобы Base "узнал" о них
 from src.models.users import User  # noqa
+from src.models.posts import Post  # noqa
+from src.models.comments import Comment  # noqa
+
 # from src.models.posts import Post  # noqa
 # from src.models.comments import Comment  # noqa
 # Импортируй все свои модели здесь, чтобы Alembic их "увидел"
