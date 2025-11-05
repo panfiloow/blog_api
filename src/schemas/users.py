@@ -6,9 +6,12 @@ class UserCreate(BaseModel):
     email: str
     password: str 
 
-class User(BaseModel):
+class UserResponse(BaseModel):
     id: int
     username: str
     email: str
     created_at: datetime
     hashed_password: str
+
+    class Config:
+        from_attributes = True
