@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, DateTime, Integer, String, ForeignKey, func
 from sqlalchemy.orm import relationship
 from src.database import Base
 
@@ -11,8 +11,10 @@ class Comment(Base):
     content = Column(String, nullable=False)
     author_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     post_id = Column(Integer, ForeignKey("posts.id"), nullable=False)
-    comments = relationship("Comment", back_populates="post", lazy="select")
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
     post = relationship("Post", back_populates="comments")
+    author = relationship("User", back_populates="comments")  
 
     def __repr__(self):
         return f"<Comment(id={self.id}, post_id={self.post_id})>"

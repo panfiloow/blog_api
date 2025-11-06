@@ -12,6 +12,8 @@ class Post(Base):
     content = Column(String, nullable=False)
     author_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    author = relationship("User", back_populates="posts")
     comments = relationship("Comment", back_populates="post", lazy="select")
 
     def __repr__(self):

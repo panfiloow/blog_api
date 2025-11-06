@@ -25,6 +25,7 @@ from src.database import Base  # noqa
 
 # --- НАЧАЛО ИМПОРТА МОДЕЛЕЙ ---
 # ВАЖНО: Импортируем модели ПОСЛЕ Base, чтобы Base "узнал" о них
+from src.models.users import follows # noqa
 from src.models.users import User  # noqa
 from src.models.posts import Post  # noqa
 from src.models.comments import Comment  # noqa
