@@ -4,8 +4,8 @@ class Settings(BaseSettings):
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
     POSTGRES_DB: str
-    DATABASE_HOST: str = "localhost"  
-    DATABASE_PORT: str = "5433" 
+    DATABASE_HOST: str   
+    DATABASE_PORT: str
 
     model_config = {
         "env_file": ".env", 
